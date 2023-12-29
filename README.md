@@ -1,6 +1,6 @@
 # ulisesuwu
 
-A new Flutter project.
+noteit style development application in development for couples
 
 ## Getting Started
 
