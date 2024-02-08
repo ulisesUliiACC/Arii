@@ -1,44 +1,48 @@
 import 'package:flutter/material.dart';
 import '../constanst.dart';
 
-
 class RoundedButton extends StatelessWidget {
   final String text;
-  final Function? press; // Change the type to Function?
+  final VoidCallback? press;
   final Color color, textColor;
 
-  const RoundedButton({super.key, 
+  const RoundedButton({
+    Key? key,
     required this.text,
     required this.press,
     this.color = kPrimaryColor,
     this.textColor = Colors.white,
-  });
+  }) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
     Size size = MediaQuery.of(context).size;
-    return Container(
-      margin: const EdgeInsets.symmetric(vertical: 20), /*espacio entre los dos botones login y register */
-      width: size.width * 0.8,
+    return SizedBox(
+      width: double.infinity,
+      margin: const EdgeInsets.symmetric(horizontal: 16),
       child: ClipRRect(
-        borderRadius: BorderRadius.circular(29),/*borde del boton */
+        borderRadius: BorderRadius.circular(29),
         child: TextButton(
-          onPressed: press as void Function()?,
+          onPressed: press,
           style: ButtonStyle(
             padding: MaterialStateProperty.all<EdgeInsetsGeometry>(
-              const EdgeInsets.symmetric(vertical: 15, horizontal: 20),
+              const EdgeInsets.symmetric(vertical: 20, horizontal: 20),
             ),
             foregroundColor: MaterialStateProperty.all<Color>(Colors.white),
             backgroundColor: MaterialStateProperty.all<Color>(color),
             shape: MaterialStateProperty.all<RoundedRectangleBorder>(
               RoundedRectangleBorder(
-                borderRadius: BorderRadius.circular(10.0),
+                borderRadius: BorderRadius.circular(13),
               ),
             ),
           ),
           child: Text(
             text,
-            style: TextStyle(color: textColor),
+            style: TextStyle(
+              fontSize: 16,
+              letterSpacing: 0.2,
+              color: textColor,
+            ),
           ),
         ),
       ),

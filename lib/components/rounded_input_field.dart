@@ -11,7 +11,7 @@ class RoundedInputField extends StatelessWidget {
     super.key,
     required this.hintText, 
     this.icon =Icons.person,
-    required this.onchanged
+    required this.onchanged, required Null Function(dynamic value) onChanged, required EdgeInsets margin
   });
 
   @override
@@ -31,5 +31,3 @@ class RoundedInputField extends StatelessWidget {
     );
   }
 }
-
-
